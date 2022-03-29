@@ -54,7 +54,7 @@ port(
 	rom_rd               : out std_logic;
 
 	-- MiSTer rom loading
-	dn_addr              : in  std_logic_vector(17 downto 0);
+	dn_addr              : in  std_logic_vector(18 downto 0);
 	dn_data              : in  std_logic_vector( 7 downto 0);
 	dn_wr                : in  std_logic;
 
@@ -802,7 +802,7 @@ port map(
 
 -- cpu_2732_ic55_rom2_rev1.4c (08b0d5bd)
 -- maincpu 34000-34FFF
-rom_prog1_cs <= '1' when dn_addr(17 downto 12) = "111101" else '0';
+rom_prog1_cs <= '1' when dn_addr(18 downto 12) = "100111" else '0';
 prog1_rom : work.dpram generic map (8,12)
 port map
 (
@@ -825,7 +825,7 @@ port map
 
 -- cpu_2732_ic9_rom3_rev2.4d (951175ce) + cpu_2732_ic10_rom4_rev2.4f (ba6e0f6c)
 -- maincpu 30000-31FFF
-rom_prog2_cs <= '1' when dn_addr(17 downto 13) = "11000" else '0';
+rom_prog2_cs <= '1' when dn_addr(18 downto 13) = "100100" else '0';
 prog2_rom : work.dpram generic map (8,13)
 port map
 (
@@ -851,7 +851,7 @@ port map
 -- cpu_2732_ic26_rom19_rev1.10j (4ef5e805) + cpu_2732_ic24_rom17_rev1.10h (4861f063) +
 -- cpu_2732_ic22_rom15_rev1.9j  (421aafa8) + cpu_2732_ic20_rom13_rev1.9h  (3432ff55)
 -- maincpu 10000-17FFF
-rom_bank_a_cs <= '1' when dn_addr(17 downto 15) = "010" else '0';
+rom_bank_a_cs <= '1' when dn_addr(18 downto 15) = "0010" else '0';
 bank_a_rom : work.dpram generic map (8,15)
 port map
 (
@@ -876,7 +876,7 @@ port map
 -- cpu_2732_ic25_rom18_rev1.10i (47580af5) + cpu_2732_ic23_rom16_rev1.10g (869b5942) +
 -- cpu_2732_ic21_rom14_rev1.9i (0bbd867c) + cpu_2732_ic19_rom12_rev1.9g (b9221ed1)
 -- maincpu 18000-1FFFF
-rom_bank_b_cs <= '1' when dn_addr(17 downto 15) = "011" else '0';
+rom_bank_b_cs <= '1' when dn_addr(18 downto 15) = "0011" else '0';
 bank_b_rom : work.dpram generic map (8,15)
 port map
 (
@@ -901,7 +901,7 @@ port map
 -- cpu_2732_ic18_rom11_rev1.8j (9dc986f9) + cpu_2732_ic16_rom9_rev2.8h (56e2b550) +
 -- cpu_2732_ic14_rom7_rev2.6j  (f3bce576) + cpu_2732_ic12_rom5_rev2.6h (5f8b4919)
 -- maincpu 20000-27FFF
-rom_bank_c_cs <= '1' when dn_addr(17 downto 15) = "100" else '0';
+rom_bank_c_cs <= '1' when dn_addr(18 downto 15) = "0100" else '0';
 bank_c_rom : work.dpram generic map (8,15)
 port map
 (
@@ -925,7 +925,7 @@ port map
 
 -- cpu_2732_ic17_rom10_rev1.8i (3e01b597) + cpu_2732_ic15_rom8_rev1.8g (ff26fb29) + cpu_2732_ic13_rom6_rev2.6i (5f107db5)
 -- maincpu 28000-2DFFF + padding 2E000-2FFFF
-rom_bank_d_cs <= '1' when dn_addr(17 downto 15) = "101" else '0';
+rom_bank_d_cs <= '1' when dn_addr(18 downto 15) = "0101" else '0';
 bank_d_rom : work.dpram generic map (8,15)
 port map
 (
@@ -949,7 +949,7 @@ port map
 
 -- vid_27128_ic57_rom20_rev1.8f (572c6b01)
 -- gfx1 0-3FFF
-rom_graph1_cs <= '1' when dn_addr(17 downto 14) = "0000" else '0';
+rom_graph1_cs <= '1' when dn_addr(18 downto 14) = "00000" else '0';
 graph1_rom : work.dpram generic map (8,14)
 port map
 (
@@ -973,7 +973,7 @@ port map
 
 -- vid_27128_ic58_rom21_rev1.9f (aa94bf05)
 -- gfx1 4000-7FFF
-rom_graph2_cs <= '1' when dn_addr(17 downto 14) = "0001" else '0';
+rom_graph2_cs <= '1' when dn_addr(18 downto 14) = "00001" else '0';
 graph2_rom : work.dpram generic map (8,14)
 port map
 (
@@ -997,7 +997,7 @@ port map
 
 -- vid_27128_ic41_rom22_rev1.9d (c41e3daa)
 -- gfx1 8000-BFFF
-rom_graph3_cs <= '1' when dn_addr(17 downto 14) = "0010" else '0';
+rom_graph3_cs <= '1' when dn_addr(18 downto 14) = "00010" else '0';
 graph3_rom : work.dpram generic map (8,14)
 port map
 (
@@ -1144,7 +1144,7 @@ port map(
 
 -- vid_82s147a_ic60_a-5282-10292.12f (0ea3f7fb)
 -- proms 35000-351FF (end of MRA)
-rom_decoder_cs <= '1' when dn_addr(17 downto 9) = "111111000" else '0';
+rom_decoder_cs <= '1' when dn_addr(18 downto 9) = "1010000000" else '0';
 video_addr_decoder : work.dpram generic map (8,9)
 port map
 (
